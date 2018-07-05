@@ -31,7 +31,7 @@ const resetList = () => ({
 
 const urlBuild = (categoryId, page, limit = FETCHEABLE_LIST_PAGE_SIZE) => {
     const endpointUrl = CATEGORY_ENDPOINT;
-    const categorySearch = categoryId ? `category_id=${categoryId}&` : '';
+    const categorySearch = categoryId || categoryId === 0 ? `category_id=${categoryId}&` : '';
 
     const endpointUrlWithCatId = endpointUrl.replace('{category}', categorySearch);
     const endpointUrlWithPage = endpointUrlWithCatId.replace('{page}', page);
